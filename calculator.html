@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator Vlad Costras</title>
+  </head>
+  <body>
+    <script>
+      function calculate(operator, num1, num2) {
+        switch (operator) {
+          case "+":
+            return num1 + num2;
+          case "-":
+            return num1 - num2;
+          case "*":
+            return num1 * num2;
+          case "/":
+            return num1 / num2;
+          default:
+            return "Operator invalid, va rugam introduceti unul din urmatoarele (+, -, *, /) intre primul si al doilea numar";
+        }
+      }
+
+      let number1 = parseFloat(prompt("Introduceti primul numar:"));
+      let operator = prompt("Introduceti operatia (+, -, *, /):");
+      let number2 = parseFloat(prompt("Introduceti al doilea numar:"));
+
+      try {
+        if (isNaN(number1) || isNaN(number2)) {
+          alert("Va rugam introduceti numere valide");
+        } else if (number2 === 0) {
+          throw new Error("Nu se poate imparti la zero!");
+        } else {
+          let result = calculate(operator, number1, number2);
+          alert(`Rezultatul este: ${result}`);
+        }
+      } catch (error) {
+        alert(error.message);
+      }
+    </script>
+  </body>
+</html>
